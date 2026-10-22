@@ -1,0 +1,78 @@
+/* KoddoSchool visual prototype: dark sci-fi theme, layered over the existing styles. */
+:root{
+  color-scheme:dark;
+  --navy:#e7f4ff;--blue:#46d9ff;--muted:#9ab0c9;--green:#6ef0c2;
+  --yellow:#f6d66b;--purple:#b9a0ff;--pink:#ff8db9;--line:rgba(125,190,230,.18);
+  --shadow:0 14px 38px rgba(0,0,0,.28);--shadow2:0 22px 50px rgba(0,0,0,.42);
+}
+html{scroll-behavior:smooth}
+body{
+  background:radial-gradient(ellipse at 50% -20%,rgba(20,91,139,.35),transparent 48%),
+  radial-gradient(circle at 5% 50%,rgba(20,70,112,.2),transparent 35%),#07111f;
+  color:#e7f4ff;
+}
+.site-header{
+  background:rgba(5,15,28,.88);border-bottom:1px solid rgba(92,200,245,.18);
+  box-shadow:0 8px 30px rgba(0,0,0,.18);
+}
+.brand{color:#e8f7ff;text-shadow:0 0 22px rgba(70,217,255,.12)}
+.brand b,.logo-big b{color:#46d9ff}
+.brand i,.logo-big i{color:#6ef0c2}
+.nav{color:#9ab0c9}
+.nav:hover,.nav.active{background:rgba(70,217,255,.11);color:#67e2ff}
+button:focus-visible{outline-color:#6ce6ff}
+.hero h1,.section-head h2,.grade-head h2{color:#ecf8ff}
+.hero h1 em{background:linear-gradient(90deg,#46d9ff,#9b8bff,#6ef0c2);-webkit-background-clip:text;color:transparent}
+.eyebrow,.kicker{color:#6ddfff}
+.hero-copy>p:not(.eyebrow),.section-head>p,.year p{color:#a5bad0}
+.primary{background:linear-gradient(135deg,#16b9e9,#526bff);box-shadow:0 0 26px rgba(70,217,255,.17)}
+.primary:hover{box-shadow:0 0 34px rgba(70,217,255,.32),var(--shadow2)}
+.hero-art-image{filter:drop-shadow(0 0 26px rgba(70,217,255,.15))}
+.section-head h2{letter-spacing:-1.5px}
+.year,.mission{
+  color:#e7f4ff;border:1px solid rgba(120,200,240,.2);
+  background:linear-gradient(135deg,rgba(18,43,67,.97),rgba(9,23,40,.97));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),var(--shadow);
+}
+.year.l4,.year.l5,.year.l6{background:linear-gradient(135deg,rgba(17,53,80,.96),rgba(10,24,41,.98))}
+.year:hover,.mission:hover{border-color:rgba(70,217,255,.65);box-shadow:0 0 26px rgba(70,217,255,.12),var(--shadow2)}
+.year strong{color:#ecf8ff}
+.round{background:#167ca7;box-shadow:0 0 18px rgba(70,217,255,.18)}
+.l5 .round{background:#168a76;color:#eafff9}.l6 .round{background:#9d7a22;color:#fff7d4}
+.back{background:rgba(70,217,255,.1);color:#a9eaff;border:1px solid rgba(70,217,255,.16)}
+.back:hover{background:rgba(70,217,255,.16)}
+.grade-head p:last-child{color:#a5bad0}
+.mission h3,.tip-grid h3{color:#eaf8ff}
+.mission p,.mission small,.tip-grid p{color:#a5bad0}
+.mission.blue,.mission.green,.mission.yellow,.mission.purple,.mission.pink{background:linear-gradient(135deg,rgba(17,48,73,.98),rgba(8,22,38,.98))}
+.simple-head h2,.about h2{color:#eaf8ff}
+.tip-grid article,.about,.stage-intro-screen,.stage-complete-screen,.mission-mode{
+  color:#e7f4ff;background:linear-gradient(145deg,rgba(15,38,59,.92),rgba(7,19,33,.96));
+  border-color:rgba(120,200,240,.18);
+}
+.tip-grid article{border:1px solid rgba(120,200,240,.18);border-radius:22px}
+.logo-big{color:#eaf8ff}
+.pills span{background:rgba(70,217,255,.1);border:1px solid rgba(70,217,255,.18);color:#c8efff}
+.toast{background:#102b43;color:#e7f8ff;border:1px solid rgba(70,217,255,.28)}
+.mission-progress-simple>div{background:rgba(120,200,240,.15)}
+.mission-progress-simple #prog{background:linear-gradient(90deg,#46d9ff,#7b8cff,#6ef0c2);box-shadow:0 0 12px rgba(70,217,255,.35)}
+/* Soft, restrained game feedback; motion is removed for users who request it. */
+@media (prefers-reduced-motion:no-preference){
+  .year,.mission,.primary,.nav,.back,.round{transition:transform .22s ease,box-shadow .22s ease,background .22s ease,border-color .22s ease,filter .22s ease}
+  .year:hover,.mission:hover{transform:translateY(-4px)}
+  .primary:active,.year:active,.mission:active{transform:translateY(0) scale(.99)}
+  .round{transition:transform .22s ease,box-shadow .22s ease}
+  .year:hover .round,.mission:hover .round{box-shadow:0 0 22px rgba(70,217,255,.4)}
+}
+@media(max-width:760px){
+  .site-header{padding:14px 18px;gap:10px}
+  .brand{font-size:27px;letter-spacing:-1.4px}
+  .site-header nav{gap:2px}.nav{padding:9px 8px;font-size:13px}
+  .hero{min-height:unset;padding:42px 0 25px}
+  .hero h1{letter-spacing:-3px}
+  .section-head h2{font-size:36px}
+  .year{padding:20px;min-height:190px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
