@@ -1,84 +1,73 @@
 <!doctype html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KoddoSchool — Digitale leeravonturen</title>
-  <meta name="description" content="KoddoSchool — digitale leeravonturen voor L4, L5 en L6.">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="koddo-theme.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050b1c">
+<meta name="description" content="KoddoSchool — digitale leeravonturen voor L4, L5 en L6.">
+<title>KoddoSchool — Digitale leeravonturen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="startpagina.css">
 </head>
 <body>
-<header class="site-header">
-  <button class="brand" data-page="home" aria-label="KoddoSchool home"><span>Koddo</span><b>School</b><i>✦</i></button>
-  <nav>
-    <button class="nav active" data-page="home">⌂ <span>Home</span></button>
-    <button class="nav" data-page="tips">💡 <span>Tips &amp; tricks</span></button>
-    <button class="nav" data-page="about">ⓘ <span>Over KoddoSchool</span></button>
-  </nav>
+<header class="topbar">
+ <a class="wordmark" href="#" aria-label="KoddoSchool startpagina"><span>Koddo</span><b>School</b><i>✦</i></a>
+ <nav aria-label="Hoofdnavigatie"><a href="#wereld">De wereld</a><a href="#voor-leerkrachten">Voor leerkrachten</a><a href="#over">Over KoddoSchool</a></nav>
+ <button class="login" type="button" data-message="De leerlingenlogin bouwen we in een volgende fase.">Inloggen <span>↗</span></button>
+ <button class="menu-toggle" aria-label="Menu openen" aria-expanded="false">☰</button>
 </header>
 <main>
-  <section class="page show" id="home">
-    <div class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">DIGITALE VAARDIGHEDEN VOOR SLIMME DOENERS</p>
-        <h1>Leer. Oefen.<br><em>Ontdek.</em></h1>
-        <p>Klaar om slimmer om te gaan met digitale technologie?<br>Kies je leerjaar en ontdek wat jij allemaal kan.</p>
-        <button class="primary" data-scroll="years">Ontdek de missies <span>→</span></button>
-      </div>
-      <div class="hero-art hero-art-image" aria-hidden="true">
-        <img src="assets/l4-hero.png" alt="Digitale vaardigheden" class="home-hero-image">
-      </div>
-    </div>
-    <section class="section" id="years">
-      <div class="section-head"><div><p class="kicker">START HIER</p><h2>Kies je leerjaar</h2></div><p>Kies je missie en ga aan de slag!</p></div>
-      <div class="years">
-        <button class="year l4" data-year="L4"><div><strong>L4</strong><p>Ontdek de digitale skills.</p></div><span class="round">→</span><div class="mini l4-card-art"><img src="assets/l4.png" alt="" /></div></button>
-        <button class="year l5" data-year="L5"><div><strong>L5</strong><p>Binnenkort beschikbaar.</p></div><span class="round">→</span><div class="mini year-card-art"><img src="assets/l5.png" alt="" /></div></button>
-        <button class="year l6" data-year="L6"><div><strong>L6</strong><p>Binnenkort beschikbaar.</p></div><span class="round">→</span><div class="mini year-card-art"><img src="assets/l6.png" alt="" /></div></button>
-      </div>
-    </section>
-  </section>
-
-  <section class="page" id="l4">
-    <div class="top"><button class="back" data-page="home">← Terug naar startpagina</button></div>
-    <div class="grade-head"><div><p class="kicker">KODDOSCHOOL · L4</p><h2>L<span>4</span></h2><p>Kies een missie en ga aan de slag!</p></div><div class="grade-art grade-art-clean" aria-hidden="true"><div class="grade-device"><div class="grade-screen"><span class="grade-window"></span><span class="grade-line line-a"></span><span class="grade-line line-b"></span><span class="grade-line line-c"></span></div><div class="grade-base"></div></div><span class="grade-spark spark-1">✦</span><span class="grade-spark spark-2">•</span><span class="grade-spark spark-3">✦</span></div>
-    <div class="missions">
-      <button class="mission blue" data-mission="comm"><div class="mission-art image-art"><img src="assets/comm.png" alt="" /></div><div><small>MISSIE 1</small><h3>Digitaal communiceren</h3><p>Verzenden · ontvangen · online · offline</p></div><span class="round">→</span></button>
-      <button class="mission green" data-mission="thinking"><div class="mission-art image-art"><img src="assets/robot.png" alt="" /></div><div><small>MISSIE 2</small><h3>Denken als een computer</h3><p>Algoritmes · patronen · problemen oplossen</p></div><span class="round">→</span></button>
-      <button class="mission yellow" data-mission="working"><div class="mission-art image-art"><img src="assets/folder.png" alt="" /></div><div><small>MISSIE 3</small><h3>Digitaal werken</h3><p>Toetsenbord · apparaten · bestanden · mappen</p></div><span class="round">→</span></button>
-      <button class="mission purple wide" data-mission="soon"><div class="mission-art image-art"><img src="assets/search.png" alt="" /></div><div><small>MISSIE 4</small><h3>Slim zoeken</h3><p>Zoekvragen · zoekwoorden · resultaten beoordelen</p></div><span class="round">→</span></button>
-      <button class="mission pink wide" data-mission="soon"><div class="mission-art image-art"><img src="assets/safety.png" alt="" /></div><div><small>MISSIE 5</small><h3>Veilig online</h3><p>Privacy · persoonlijke gegevens · veilig gedrag</p></div><span class="round">→</span></button>
-    </div>
-  </section>
-
-  <section class="page" id="mission">
-    <div class="mission-mode">
-      <div class="mission-topbar">
-        <button class="back" data-page="l4">← Terug naar L4</button>
-        <div class="mission-label" id="missionLabel">KODDOSCHOOL · MISSIE 1</div>
-        <div class="mission-step-count" id="missionStepCount">Stap 1 van 3</div>
-      </div>
-      <div class="mission-progress-simple">
-        <div><span id="prog"></span></div>
-        <b id="progText">0 / 3 voltooid</b>
-      </div>
-      <div class="activity" id="activity"></div>
-    </div>
-  </section>
-
-  <section class="page" id="tips">
-    <div class="top"><button class="back" data-page="home">← Terug naar startpagina</button></div>
-    <div class="simple-head"><p class="kicker">SNELLE HULP</p><h2>💡 Tips &amp; tricks</h2><p>Handige kleine trucjes voor slimmer digitaal werken.</p></div>
-    <div class="tip-grid"><article><b>⌨️</b><h3>Handige toetsen</h3><p>Ctrl + C, Ctrl + V, Ctrl + Z, Backspace en Shift.</p></article><article><b>🔎</b><h3>Slim zoeken</h3><p>Gebruik duidelijke zoekwoorden en kijk wie de informatie maakte.</p></article><article><b>📁</b><h3>Bestanden &amp; mappen</h3><p>Geef bestanden duidelijke namen en bewaar ze op de juiste plek.</p></article><article><b>🛡️</b><h3>Veilig online</h3><p>Deel geen wachtwoorden en denk na voor je iets deelt.</p></article><article><b>💻</b><h3>Computertrucjes</h3><p>Werk handig met vensters, tabbladen, zoom en screenshots.</p></article></div>
-  </section>
-
-  <section class="page" id="about">
-    <div class="top"><button class="back" data-page="home">← Terug naar startpagina</button></div>
-    <div class="about"><div class="logo-big"><span>Digi</span><b>Skills</b><i>›</i></div><p class="kicker">OVER KODDOSCHOOL</p><h2>Leer. Oefen. Ontdek.</h2><p>KoddoSchool helpt leerlingen stap voor stap digitale vaardigheden ontdekken, oefenen en toepassen.</p><div class="pills"><span>🧠 Zelfstandig leren</span><span>🧩 Interactief oefenen</span><span>💻 Digitale skills</span></div></div>
-  </section>
+<section class="hero" id="wereld">
+ <div class="hero-copy">
+  <div class="eyebrow"><span class="status-dot"></span> EEN NIEUW DIGITAAL AVONTUUR</div>
+  <h1>Leer.<br>Oefen.<br><span>Ontdek.</span></h1>
+  <p class="lead">Klaar om slimmer om te gaan met digitale technologie?</p>
+  <p class="description">Stap in een wereld vol missies, ontdek nieuwe skills en word elke dag een beetje digitaler.</p>
+  <a class="primary" href="#leerjaar">Begin je avontuur <span aria-hidden="true">↗</span></a>
+  <div class="hero-footnote"><span class="mini-check">✓</span> Voor jonge ontdekkers van L4, L5 en L6</div>
+ </div>
+ <div class="world-art" role="img" aria-label="Een futuristische ruimtewereld met zwevende eilanden en een vriendelijke robot">
+  <div class="world-glow"></div><div class="planet planet-large"></div><div class="planet planet-small"></div>
+  <div class="starfield"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <svg class="energy-path" viewBox="0 0 760 500" aria-hidden="true"><path d="M35 345 C130 255 180 400 290 300 S430 230 510 270 S640 130 730 165" fill="none" stroke="#26dfff" stroke-width="2.5" stroke-dasharray="4 11"/><path d="M35 345 C130 255 180 400 290 300 S430 230 510 270 S640 130 730 165" fill="none" stroke="#26dfff" stroke-width="10" opacity=".14" filter="url(#blur)"/><defs><filter id="blur"><feGaussianBlur stdDeviation="7"/></filter></defs><g fill="#a9faff" stroke="#22dfff" stroke-width="2"><circle cx="35" cy="345" r="5"/><circle cx="290" cy="300" r="5"/><circle cx="510" cy="270" r="5"/><circle cx="730" cy="165" r="5"/></g></svg>
+  <div class="island island-far"><div class="island-city"><i></i><i></i><i></i></div><div class="rock"></div></div>
+  <div class="island island-left"><div class="portal"></div><div class="crystal c1"></div><div class="crystal c2"></div><div class="rock"></div></div>
+  <div class="island island-mid"><div class="mini-city"><i></i><i></i><i></i><i></i></div><div class="rock"></div><div class="island-lights"></div></div>
+  <div class="island island-right"><div class="tower"></div><div class="crystal c3"></div><div class="rock"></div></div>
+  <div class="landing-platform"><div class="platform-ring ring-one"></div><div class="platform-ring ring-two"></div><div class="platform-core"></div></div>
+  <div class="mascot">
+   <div class="antenna"><span></span></div><div class="ear ear-left"></div><div class="ear ear-right"></div>
+   <div class="robot-head"><div class="visor"><span class="eye"></span><span class="eye"></span><span class="smile"></span></div><div class="side-light"></div></div>
+   <div class="neck"></div><div class="robot-body"><div class="chest-light"></div><div class="arm arm-left"></div><div class="arm arm-right"><span class="hand"></span></div></div>
+   <div class="leg leg-left"></div><div class="leg leg-right"></div><div class="foot foot-left"></div><div class="foot foot-right"></div>
+  </div>
+  <div class="floating-label label-one"><span class="label-icon">✦</span><span><b>Nieuwe werelden</b><small>om te ontdekken</small></span></div>
+  <div class="floating-label label-two"><span class="pulse-icon">↗</span><span><b>Jouw avontuur</b><small>begint hier</small></span></div>
+ </div>
+ <div class="scroll-cue"><span></span> SCROLL OM TE ONTDEKKEN</div>
+</section>
+<section class="choose" id="leerjaar">
+ <div class="section-eyebrow">JOUW AVONTUUR START HIER</div>
+ <div class="choose-heading"><h2>Welke wereld <span>ontdek jij?</span></h2><p>Kies je leerjaar en ga op ontdekking.</p></div>
+ <div class="grade-worlds">
+  <button class="grade grade-four" data-message="De wereld van L4 werken we als volgende stap uit.">
+   <span class="grade-number">04</span><span class="grade-orbit"></span><span class="grade-island"><i></i><i></i><i></i></span><span class="grade-bottom"><b>Leerjaar 4</b><small>De eerste ontdekking</small><span class="grade-arrow">↗</span></span>
+  </button>
+  <button class="grade grade-five" data-message="De wereld van L5 werken we in een volgende fase uit.">
+   <span class="grade-number">05</span><span class="grade-orbit"></span><span class="grade-island"><i></i><i></i><i></i></span><span class="grade-bottom"><b>Leerjaar 5</b><small>Nieuwe skills ontgrendelen</small><span class="grade-arrow">↗</span></span>
+  </button>
+  <button class="grade grade-six" data-message="De wereld van L6 werken we in een volgende fase uit.">
+   <span class="grade-number">06</span><span class="grade-orbit"></span><span class="grade-island"><i></i><i></i><i></i></span><span class="grade-bottom"><b>Leerjaar 6</b><small>Klaar voor de uitdaging?</small><span class="grade-arrow">↗</span></span>
+  </button>
+ </div>
+</section>
+<section class="promise" id="voor-leerkrachten">
+ <div class="promise-icon">✧</div><div><div class="section-eyebrow">LEREN DOOR TE DOEN</div><h2>Elke missie brengt je verder.</h2><p>Ontdek digitale vaardigheden stap voor stap, oefen op je eigen tempo en vier wat je al kunt.</p></div>
+ <div class="promise-stat"><span>05</span><small>missies vol ontdekking</small></div>
+</section>
+<footer id="over"><a class="wordmark" href="#"><span>Koddo</span><b>School</b><i>✦</i></a><span>Digitale leeravonturen</span><span class="footer-note">Een wereld om te leren, te oefenen en te groeien.</span></footer>
 </main>
-<div class="toast" id="toast"></div>
-<script src="script.js"></script>
-</body>
-</html>
+<div class="toast" role="status" aria-live="polite"></div>
+<script src="startpagina.js"></script>
+</body></html>
