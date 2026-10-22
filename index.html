@@ -7,17 +7,17 @@
 <title>KoddoSchool — Digitale leeravonturen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="startpagina.css">
 </head>
 <body>
 <header class="topbar">
- <a class="wordmark" href="#" aria-label="KoddoSchool startpagina"><span>Koddo</span><b>School</b><i>✦</i></a>
+ <a class="wordmark" href="#top" aria-label="KoddoSchool startpagina"><span>Koddo</span><b>School</b><i>✦</i></a>
  <nav aria-label="Hoofdnavigatie"><a href="#wereld">De wereld</a><a href="#voor-leerkrachten">Voor leerkrachten</a><a href="#over">Over KoddoSchool</a></nav>
- <button class="login" type="button" data-message="De leerlingenlogin bouwen we in een volgende fase.">Inloggen <span>↗</span></button>
+ <button class="login" type="button" data-message="De leerlingenlogin bouwen we in een volgende fase.">♙ Inloggen <span>↗</span></button>
  <button class="menu-toggle" aria-label="Menu openen" aria-expanded="false">☰</button>
 </header>
-<main>
+<main id="top">
 <section class="hero" id="wereld">
  <div class="hero-copy">
   <div class="eyebrow"><span class="status-dot"></span> EEN NIEUW DIGITAAL AVONTUUR</div>
@@ -27,47 +27,28 @@
   <a class="primary" href="#leerjaar">Begin je avontuur <span aria-hidden="true">↗</span></a>
   <div class="hero-footnote"><span class="mini-check">✓</span> Voor jonge ontdekkers van L4, L5 en L6</div>
  </div>
- <div class="world-art" role="img" aria-label="Een futuristische ruimtewereld met zwevende eilanden en een vriendelijke robot">
-  <div class="world-glow"></div><div class="planet planet-large"></div><div class="planet planet-small"></div>
-  <div class="starfield"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-  <svg class="energy-path" viewBox="0 0 760 500" aria-hidden="true"><path d="M35 345 C130 255 180 400 290 300 S430 230 510 270 S640 130 730 165" fill="none" stroke="#26dfff" stroke-width="2.5" stroke-dasharray="4 11"/><path d="M35 345 C130 255 180 400 290 300 S430 230 510 270 S640 130 730 165" fill="none" stroke="#26dfff" stroke-width="10" opacity=".14" filter="url(#blur)"/><defs><filter id="blur"><feGaussianBlur stdDeviation="7"/></filter></defs><g fill="#a9faff" stroke="#22dfff" stroke-width="2"><circle cx="35" cy="345" r="5"/><circle cx="290" cy="300" r="5"/><circle cx="510" cy="270" r="5"/><circle cx="730" cy="165" r="5"/></g></svg>
-  <div class="island island-far"><div class="island-city"><i></i><i></i><i></i></div><div class="rock"></div></div>
-  <div class="island island-left"><div class="portal"></div><div class="crystal c1"></div><div class="crystal c2"></div><div class="rock"></div></div>
-  <div class="island island-mid"><div class="mini-city"><i></i><i></i><i></i><i></i></div><div class="rock"></div><div class="island-lights"></div></div>
-  <div class="island island-right"><div class="tower"></div><div class="crystal c3"></div><div class="rock"></div></div>
-  <div class="landing-platform"><div class="platform-ring ring-one"></div><div class="platform-ring ring-two"></div><div class="platform-core"></div></div>
-  <div class="mascot">
-   <div class="antenna"><span></span></div><div class="ear ear-left"></div><div class="ear ear-right"></div>
-   <div class="robot-head"><div class="visor"><span class="eye"></span><span class="eye"></span><span class="smile"></span></div><div class="side-light"></div></div>
-   <div class="neck"></div><div class="robot-body"><div class="chest-light"></div><div class="arm arm-left"></div><div class="arm arm-right"><span class="hand"></span></div></div>
-   <div class="leg leg-left"></div><div class="leg leg-right"></div><div class="foot foot-left"></div><div class="foot foot-right"></div>
-  </div>
-  <div class="floating-label label-one"><span class="label-icon">✦</span><span><b>Nieuwe werelden</b><small>om te ontdekken</small></span></div>
-  <div class="floating-label label-two"><span class="pulse-icon">↗</span><span><b>Jouw avontuur</b><small>begint hier</small></span></div>
+ <div class="world-art" aria-label="Een kleurrijke ruimtewereld met een robot en drie zwevende leerjaareilanden">
+  <div class="scene-glow"></div>
+  <div class="planet planet-one"></div><div class="planet planet-two"></div>
+  <div class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <svg class="energy-path" viewBox="0 0 900 500" aria-hidden="true"><path d="M38 375 C155 305 185 405 300 290 S475 260 550 220 S710 130 855 145" fill="none" stroke="#29e5ff" stroke-width="3" stroke-dasharray="4 13"/><path d="M38 375 C155 305 185 405 300 290 S475 260 550 220 S710 130 855 145" fill="none" stroke="#29e5ff" stroke-width="13" opacity=".17"/></svg>
+  <div class="robot"><div class="antenna"></div><div class="robot-head"><div class="eyes"><i></i><i></i><b></b></div></div><div class="ear left"></div><div class="ear right"></div><div class="neck"></div><div class="body"><i></i></div><div class="arm left"></div><div class="arm right"></div><div class="leg left"></div><div class="leg right"></div></div>
+  <a class="island island-l4" href="#leerjaar" aria-label="Ontdek leerjaar 4"><img src="assets/island-l4.webp" alt=""><span>Ontdek L4 <b>↗</b></span></a>
+  <a class="island island-l5" href="#leerjaar" aria-label="Ontdek leerjaar 5"><img src="assets/island-l5.webp" alt=""><span>Ontdek L5 <b>↗</b></span></a>
+  <a class="island island-l6" href="#leerjaar" aria-label="Ontdek leerjaar 6"><img src="assets/island-l6.webp" alt=""><span>Ontdek L6 <b>↗</b></span></a>
  </div>
- <div class="scroll-cue"><span></span> SCROLL OM TE ONTDEKKEN</div>
+ <a class="scroll-cue" href="#leerjaar"><span></span> SCROLL OM TE ONTDEKKEN</a>
 </section>
 <section class="choose" id="leerjaar">
  <div class="section-eyebrow">JOUW AVONTUUR START HIER</div>
  <div class="choose-heading"><h2>Welke wereld <span>ontdek jij?</span></h2><p>Kies je leerjaar en ga op ontdekking.</p></div>
  <div class="grade-worlds">
-  <button class="grade grade-four" data-message="De wereld van L4 werken we als volgende stap uit.">
-   <span class="grade-number">04</span><span class="grade-orbit"></span><span class="grade-island"><i></i><i></i><i></i></span><span class="grade-bottom"><b>Leerjaar 4</b><small>De eerste ontdekking</small><span class="grade-arrow">↗</span></span>
-  </button>
-  <button class="grade grade-five" data-message="De wereld van L5 werken we in een volgende fase uit.">
-   <span class="grade-number">05</span><span class="grade-orbit"></span><span class="grade-island"><i></i><i></i><i></i></span><span class="grade-bottom"><b>Leerjaar 5</b><small>Nieuwe skills ontgrendelen</small><span class="grade-arrow">↗</span></span>
-  </button>
-  <button class="grade grade-six" data-message="De wereld van L6 werken we in een volgende fase uit.">
-   <span class="grade-number">06</span><span class="grade-orbit"></span><span class="grade-island"><i></i><i></i><i></i></span><span class="grade-bottom"><b>Leerjaar 6</b><small>Klaar voor de uitdaging?</small><span class="grade-arrow">↗</span></span>
-  </button>
+  <button class="grade grade-four" data-message="De wereld van L4 werken we als volgende stap uit."><b>L4</b><span>De eerste ontdekking</span><i>↗</i></button>
+  <button class="grade grade-five" data-message="De wereld van L5 werken we in een volgende fase uit."><b>L5</b><span>Nieuwe skills ontgrendelen</span><i>↗</i></button>
+  <button class="grade grade-six" data-message="De wereld van L6 werken we in een volgende fase uit."><b>L6</b><span>Klaar voor de uitdaging?</span><i>↗</i></button>
  </div>
 </section>
-<section class="promise" id="voor-leerkrachten">
- <div class="promise-icon">✧</div><div><div class="section-eyebrow">LEREN DOOR TE DOEN</div><h2>Elke missie brengt je verder.</h2><p>Ontdek digitale vaardigheden stap voor stap, oefen op je eigen tempo en vier wat je al kunt.</p></div>
- <div class="promise-stat"><span>05</span><small>missies vol ontdekking</small></div>
-</section>
-<footer id="over"><a class="wordmark" href="#"><span>Koddo</span><b>School</b><i>✦</i></a><span>Digitale leeravonturen</span><span class="footer-note">Een wereld om te leren, te oefenen en te groeien.</span></footer>
-</main>
-<div class="toast" role="status" aria-live="polite"></div>
-<script src="startpagina.js"></script>
+<section class="promise" id="voor-leerkrachten"><div class="promise-icon">✧</div><div><div class="section-eyebrow">LEREN DOOR TE DOEN</div><h2>Elke missie brengt je verder.</h2><p>Ontdek digitale vaardigheden stap voor stap, oefen op je eigen tempo en vier wat je al kunt.</p></div><div class="promise-stat"><span>05</span><small>missies vol ontdekking</small></div></section>
+<footer id="over"><a class="wordmark" href="#top"><span>Koddo</span><b>School</b><i>✦</i></a><span>Digitale leeravonturen</span><span class="footer-note">Een wereld om te leren, te oefenen en te groeien.</span></footer>
+</main><div class="toast" role="status" aria-live="polite"></div><script src="startpagina.js"></script>
 </body></html>
