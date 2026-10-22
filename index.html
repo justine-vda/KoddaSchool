@@ -1,109 +1,94 @@
 <!doctype html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07152d">
-  <title>DigiSkills — Kies je wereld</title>
-  <style>
-    :root{color-scheme:dark;--cyan:#55eaff;--green:#56ffc0;--ink:#06152b}
-    *{box-sizing:border-box}
-    html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#fff}
-    body{min-height:100vh;overflow-x:hidden;background:#07152d}
-    .scene{position:relative;isolation:isolate;min-height:100vh;display:flex;flex-direction:column;overflow:hidden}
-    .scene::before{content:"";position:absolute;inset:0;z-index:-2;background-image:linear-gradient(180deg,rgba(2,10,29,.45) 0%,rgba(3,13,35,.12) 42%,rgba(2,10,29,.58) 100%),url("./achtergrond%20startpagina.png");background-size:cover;background-position:center;background-repeat:no-repeat;transform:scale(1.015)}
-    .scene::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 45%,transparent 25%,rgba(2,8,26,.28) 100%);pointer-events:none}
-    header{width:min(1440px,100%);margin:0 auto;padding:25px clamp(20px,4vw,64px);display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{display:flex;align-items:center;gap:13px;text-decoration:none;color:white;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:850;letter-spacing:-.045em;text-shadow:0 2px 15px #00152c}
-    .brand-mark{width:48px;height:48px;border:1px solid rgba(91,238,255,.75);border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(6,39,68,.92),rgba(2,16,39,.88));box-shadow:0 0 24px rgba(40,220,255,.25),inset 0 0 15px rgba(40,220,255,.12);color:var(--cyan);font-size:26px}
-    .brand span:last-child span{color:var(--green)}
-    .actions{display:flex;gap:11px;flex-wrap:wrap;justify-content:flex-end}
-    .pill{appearance:none;border:1px solid rgba(113,231,255,.62);border-radius:999px;padding:12px 19px;background:rgba(3,20,48,.72);color:white;font-size:.95rem;font-weight:750;letter-spacing:.01em;cursor:pointer;backdrop-filter:blur(12px);box-shadow:0 5px 22px rgba(0,0,0,.2);transition:transform .2s,border-color .2s,box-shadow .2s}
-    .pill.primary{background:linear-gradient(120deg,#087e8f,#075a78);border-color:#64f5ff;box-shadow:0 0 22px rgba(34,222,255,.22)}
-    .pill:hover{transform:translateY(-2px);border-color:#fff;box-shadow:0 0 25px rgba(65,232,255,.3)}
-    main{width:min(1440px,100%);margin:0 auto;flex:1;display:flex;flex-direction:column;align-items:center;padding:clamp(12px,2vh,26px) clamp(16px,3vw,48px) 34px}
-    .intro{text-align:center;margin:0 0 clamp(4px,1.4vh,18px);text-shadow:0 3px 20px rgba(0,0,0,.7)}
-    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border:1px solid rgba(105,238,255,.42);border-radius:999px;background:rgba(2,21,48,.58);color:#baf8ff;font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;backdrop-filter:blur(10px)}
-    .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
-    h1{margin:13px 0 7px;font-size:clamp(2rem,4.1vw,3.8rem);line-height:1.04;letter-spacing:-.055em;font-weight:900}
-    h1 .shine{background:linear-gradient(90deg,#fff 5%,#91f8ff 45%,#79ffd0 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .subtitle{margin:0;color:#e1f6ff;font-size:clamp(.92rem,1.25vw,1.1rem);text-shadow:0 2px 10px #001329}
-    .islands{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end;gap:clamp(0px,1.5vw,22px);margin:auto 0;max-width:1320px}
-    .island{--glow:rgba(71,242,255,.45);position:relative;display:block;min-width:0;border:0;padding:0;background:none;cursor:pointer;filter:drop-shadow(0 14px 18px rgba(0,0,0,.3));transition:transform .28s ease,filter .28s ease;animation:float 6s ease-in-out infinite}
-    .island:nth-child(2){animation-delay:-2s;transform:translateY(-12px)}
-    .island:nth-child(3){animation-delay:-4s}
-    .island img{display:block;width:100%;height:auto;object-fit:contain;user-select:none;-webkit-user-drag:none}
-    .island::after{content:"";position:absolute;left:20%;right:20%;bottom:4%;height:14%;border-radius:50%;background:var(--glow);filter:blur(28px);opacity:.45;z-index:-1;transition:opacity .25s,transform .25s}
-    .island:hover,.island:focus-visible{transform:translateY(-13px) scale(1.035);filter:drop-shadow(0 20px 24px rgba(0,0,0,.38)) drop-shadow(0 0 15px var(--glow));outline:none}
-    .island:nth-child(2):hover,.island:nth-child(2):focus-visible{transform:translateY(-24px) scale(1.035)}
-    .island:hover::after,.island:focus-visible::after{opacity:.9;transform:scale(1.15)}
-    .island:focus-visible img{filter:brightness(1.08)}
-    .island-label{display:block;margin:-2px auto 0;width:max-content;max-width:90%;padding:8px 17px;border:1px solid rgba(130,241,255,.4);border-radius:999px;background:rgba(3,18,43,.76);color:#eafcff;font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;backdrop-filter:blur(10px);box-shadow:0 0 20px rgba(34,220,255,.12)}
-    .island:nth-child(1){--glow:rgba(58,255,187,.5)}
-    .island:nth-child(2){--glow:rgba(44,180,255,.55)}
-    .island:nth-child(3){--glow:rgba(69,255,173,.58)}
-    footer{padding:0 20px 18px;text-align:center;color:rgba(227,247,255,.8);font-size:.78rem;text-shadow:0 2px 8px #001329}
-    .notice{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);padding:13px 18px;border:1px solid rgba(105,238,255,.55);border-radius:14px;background:rgba(3,18,43,.95);color:white;box-shadow:0 10px 40px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:.2s;z-index:10;text-align:center;width:max-content;max-width:calc(100vw - 32px)}
-    .notice.show{opacity:1;transform:translate(-50%,0)}
-    @keyframes float{0%,100%{translate:0 0}50%{translate:0 -8px}}
-    @media(max-width:760px){header{padding-top:16px;align-items:flex-start}.brand-mark{width:40px;height:40px}.actions{gap:7px}.pill{padding:10px 12px;font-size:.82rem}.islands{grid-template-columns:1fr;max-width:440px;gap:4px;margin:8px auto 20px}.island{width:min(100%,370px);margin:0 auto}.island:nth-child(2){transform:none}.island-label{margin-top:-5px}main{padding-top:12px}.intro{margin-bottom:10px}.scene::before{background-position:center}.subtitle{max-width:330px;margin-inline:auto}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07152d">
+<title>DigiSkills — Kies je wereld</title>
+<style>
+:root{color-scheme:dark;--cyan:#55eaff;--green:#56ffc0}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#fff}
+body{min-height:100vh;overflow-x:hidden;background:#07152d}
+.scene{position:relative;isolation:isolate;min-height:100vh;display:flex;flex-direction:column;overflow:hidden}
+.scene::before{content:"";position:absolute;inset:0;z-index:-2;background-image:linear-gradient(180deg,rgba(2,8,25,.62) 0%,rgba(3,13,35,.16) 32%,rgba(3,12,32,.22) 58%,rgba(2,8,25,.72) 100%),radial-gradient(ellipse at 50% 35%,rgba(4,19,43,.06) 0%,rgba(3,12,31,.25) 70%,rgba(2,8,24,.55) 100%),url("./achtergrond%20startpagina.png");background-size:cover;background-position:center;background-repeat:no-repeat;transform:scale(1.025)}
+.scene::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(3,11,29,.08),transparent 35%,rgba(2,9,27,.2)),radial-gradient(ellipse at 50% 52%,transparent 25%,rgba(2,8,26,.32) 100%);pointer-events:none}
+header{width:min(1540px,100%);margin:0 auto;padding:22px clamp(20px,4vw,64px);display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;z-index:2}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none;color:white;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:850;letter-spacing:-.045em;text-shadow:0 2px 15px #00152c}
+.brand-mark{width:48px;height:48px;border:1px solid rgba(91,238,255,.75);border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(6,39,68,.92),rgba(2,16,39,.88));box-shadow:0 0 24px rgba(40,220,255,.25),inset 0 0 15px rgba(40,220,255,.12);color:var(--cyan);font-size:26px;flex-shrink:0}
+.brand span:last-child span{color:var(--green)}
+.actions{display:flex;gap:11px;flex-wrap:wrap;justify-content:flex-end}
+.pill{appearance:none;border:1px solid rgba(113,231,255,.62);border-radius:999px;padding:12px 19px;background:rgba(3,20,48,.82);color:white;font-size:.95rem;font-weight:750;letter-spacing:.01em;cursor:pointer;backdrop-filter:blur(12px);box-shadow:0 5px 22px rgba(0,0,0,.2);transition:transform .2s,border-color .2s,box-shadow .2s}
+.pill.primary{background:linear-gradient(120deg,#087e8f,#075a78);border-color:#64f5ff;box-shadow:0 0 22px rgba(34,222,255,.22)}
+.pill:hover{transform:translateY(-2px);border-color:#fff;box-shadow:0 0 25px rgba(65,232,255,.3)}
+.pill:focus-visible{outline:3px solid #fff;outline-offset:3px}
+button{font:inherit}
+main{width:min(1540px,100%);margin:0 auto;flex:1;display:flex;flex-direction:column;align-items:center;padding:clamp(8px,1.5vh,20px) clamp(12px,2vw,32px) 24px;position:relative;z-index:1}
+.intro{text-align:center;margin:0 0 clamp(0px,1vh,12px);padding:0 12px 10px;text-shadow:0 3px 22px rgba(0,0,0,.9);position:relative}
+.intro::before{content:"";position:absolute;z-index:-1;inset:-22px -50px -8px;border-radius:50%;background:radial-gradient(ellipse,rgba(2,12,32,.56) 0%,rgba(2,12,32,.25) 52%,transparent 75%);filter:blur(10px);pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border:1px solid rgba(105,238,255,.48);border-radius:999px;background:rgba(2,21,48,.74);color:#baf8ff;font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;backdrop-filter:blur(10px)}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+h1{margin:11px 0 8px;font-size:clamp(2rem,4.2vw,3.9rem);line-height:1.04;letter-spacing:-.055em;font-weight:900}
+h1 .shine{background:linear-gradient(90deg,#fff 5%,#91f8ff 45%,#79ffd0 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.subtitle{margin:0;color:#e1f6ff;font-size:clamp(.92rem,1.25vw,1.1rem);text-shadow:0 2px 10px #001329}
+.islands{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end;gap:clamp(0px,.8vw,12px);margin:auto 0;max-width:1500px;padding:0 2px}
+.island{--glow:rgba(71,242,255,.45);position:relative;display:block;min-width:0;width:100%;border:0;padding:0;background:none;cursor:pointer;filter:drop-shadow(0 16px 20px rgba(0,0,0,.38));transition:transform .28s ease,filter .28s ease;animation:float 6s ease-in-out infinite;transform:scale(1.07);transform-origin:center bottom}
+.island:nth-child(2){animation-delay:-2s;transform:translateY(-13px) scale(1.09)}
+.island:nth-child(3){animation-delay:-4s;transform:scale(1.07)}
+.island img{display:block;width:100%;height:auto;object-fit:contain;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.island::after{content:"";position:absolute;left:20%;right:20%;bottom:4%;height:14%;border-radius:50%;background:var(--glow);filter:blur(28px);opacity:.45;z-index:-1;transition:opacity .25s,transform .25s}
+.island:hover,.island:focus-visible{transform:translateY(-15px) scale(1.105);filter:drop-shadow(0 22px 26px rgba(0,0,0,.42)) drop-shadow(0 0 18px var(--glow));outline:none}
+.island:nth-child(2):hover,.island:nth-child(2):focus-visible{transform:translateY(-25px) scale(1.13)}
+.island:hover::after,.island:focus-visible::after{opacity:.9;transform:scale(1.15)}
+.island:focus-visible img{filter:brightness(1.08)}
+.island-label{display:block;position:relative;width:max-content;max-width:90%;margin:-8px auto 0;padding:9px 20px;border:1px solid rgba(130,241,255,.56);border-radius:999px;background:linear-gradient(135deg,rgba(3,22,47,.94),rgba(5,39,62,.86));color:#f1fdff;font-weight:850;font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;backdrop-filter:blur(12px);box-shadow:0 0 22px var(--glow),inset 0 0 12px rgba(90,230,255,.08);transition:background .2s,border-color .2s,box-shadow .2s}
+.island:nth-child(1){--glow:rgba(63,255,187,.58)}
+.island:nth-child(2){--glow:rgba(44,180,255,.62)}
+.island:nth-child(3){--glow:rgba(69,255,173,.66)}
+.island:nth-child(1) .island-label{border-color:rgba(76,255,195,.65)}
+.island:nth-child(2) .island-label{border-color:rgba(66,203,255,.7)}
+.island:nth-child(3) .island-label{border-color:rgba(73,255,180,.72)}
+.island:hover .island-label,.island:focus-visible .island-label{background:rgba(4,35,60,.96);border-color:#fff;box-shadow:0 0 28px var(--glow)}
+footer{position:relative;z-index:1;padding:10px 20px 18px;text-align:center;color:rgba(227,247,255,.92);font-size:.78rem;letter-spacing:.035em;text-shadow:0 2px 10px #001329}
+.notice{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);padding:13px 18px;border:1px solid rgba(105,238,255,.65);border-radius:14px;background:rgba(3,18,43,.97);color:white;box-shadow:0 10px 40px rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:10;text-align:center;width:max-content;max-width:calc(100vw - 32px)}
+.notice.show{opacity:1;transform:translate(-50%,0)}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@media(max-width:900px){header{padding:18px 22px}.islands{max-width:900px}.island{transform:scale(1.035)}.island:nth-child(2){transform:translateY(-7px) scale(1.05)}.island:nth-child(3){transform:scale(1.035)}.island:hover,.island:focus-visible{transform:translateY(-10px) scale(1.07)}.island:nth-child(2):hover,.island:nth-child(2):focus-visible{transform:translateY(-15px) scale(1.08)}}
+@media(max-width:640px){header{padding:14px 16px;align-items:center;gap:10px}.brand{font-size:1.25rem;gap:8px}.brand-mark{width:38px;height:38px;border-radius:12px;font-size:21px}.actions{gap:6px}.pill{padding:9px 11px;font-size:.75rem}.pill.primary{max-width:145px}main{padding:12px 16px 18px}.intro{margin-bottom:8px;padding-bottom:4px}.eyebrow{font-size:.62rem;letter-spacing:.1em;padding:6px 10px}h1{font-size:clamp(1.85rem,7.5vw,2.6rem);margin:10px 0 7px}.subtitle{font-size:.9rem;max-width:340px;margin-inline:auto}.islands{grid-template-columns:1fr;max-width:390px;gap:0;margin:8px auto 18px}.island{width:min(100%,340px);margin:0 auto;transform:scale(1)!important;animation:none}.island:nth-child(2){transform:none!important}.island-label{margin-top:-10px;padding:7px 16px;font-size:.72rem}footer{padding-bottom:14px;font-size:.7rem}.scene::before{background-position:center center}}
+@media(max-width:390px){header{align-items:flex-start;flex-direction:column}.actions{width:100%;justify-content:flex-start}.pill.primary{max-width:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-  <div class="scene">
-    <header>
-      <a class="brand" href="./index.html" aria-label="DigiSkills home">
-        <span class="brand-mark" aria-hidden="true">✦</span>
-        <span>Digi<span>Skills</span></span>
-      </a>
-      <nav class="actions" aria-label="Account">
-        <button class="pill" type="button" data-notice="Inloggen voor leerlingen wordt later toegevoegd.">Inloggen</button>
-        <button class="pill primary" type="button" data-notice="De leerkrachtenomgeving wordt later toegevoegd.">Inloggen als leerkracht</button>
-      </nav>
-    </header>
-    <main>
-      <section class="intro" aria-labelledby="welcome-title">
-        <div class="eyebrow">Jouw digitale avontuur begint hier</div>
-        <h1 id="welcome-title">Welkom bij <span class="shine">DigiSkills</span></h1>
-        <p class="subtitle">Kies jouw leerwereld en ontdek, oefen en word een digitale held.</p>
-      </section>
-      <section class="islands" aria-label="Kies je leerjaar">
-        <button class="island" type="button" data-level="L4" aria-label="Kies leerjaar 4">
-          <img src="./eiland%20L4.png" alt="L4-eiland met een groen natuurthema" fetchpriority="high">
-          <span class="island-label">Leerjaar 4</span>
-        </button>
-        <button class="island" type="button" data-level="L5" aria-label="Kies leerjaar 5">
-          <img src="./eiland%20L5.png" alt="L5-eiland met een futuristisch blauw technologiethema" fetchpriority="high">
-          <span class="island-label">Leerjaar 5</span>
-        </button>
-        <button class="island" type="button" data-level="L6" aria-label="Kies leerjaar 6">
-          <img src="./eiland%20L6.png" alt="L6-eiland met geavanceerde groene technologie" fetchpriority="high">
-          <span class="island-label">Leerjaar 6</span>
-        </button>
-      </section>
-    </main>
-    <footer>Ontdek & leer · Oefenen · Beheersing</footer>
-  </div>
-  <div class="notice" id="notice" role="status" aria-live="polite"></div>
-  <script>
-    const notice = document.getElementById('notice');
-    let noticeTimeout;
-    function showNotice(message) {
-      notice.textContent = message;
-      notice.classList.add('show');
-      clearTimeout(noticeTimeout);
-      noticeTimeout = setTimeout(() => notice.classList.remove('show'), 3000);
-    }
-    document.querySelectorAll('[data-notice]').forEach(button => {
-      button.addEventListener('click', () => showNotice(button.dataset.notice));
-    });
-    document.querySelectorAll('[data-level]').forEach(button => {
-      button.addEventListener('click', () => {
-        const level = button.dataset.level;
-        showNotice(level + ' geselecteerd — de leerwereld wordt in een volgende stap opgebouwd.');
-      });
-    });
-  </script>
+<div class="scene">
+<header>
+<a class="brand" href="./index.html" aria-label="DigiSkills home"><span class="brand-mark" aria-hidden="true">✦</span><span>Digi<span>Skills</span></span></a>
+<nav class="actions" aria-label="Account">
+<button class="pill" type="button" data-notice="Inloggen voor leerlingen wordt later toegevoegd.">Inloggen</button>
+<button class="pill primary" type="button" data-notice="De leerkrachtenomgeving wordt later toegevoegd.">Inloggen als leerkracht</button>
+</nav>
+</header>
+<main>
+<section class="intro" aria-labelledby="welcome-title">
+<div class="eyebrow">Jouw digitale avontuur begint hier</div>
+<h1 id="welcome-title">Welkom bij <span class="shine">DigiSkills</span></h1>
+<p class="subtitle">Kies jouw leerwereld en ontdek, oefen en word een digitale held.</p>
+</section>
+<section class="islands" aria-label="Kies je leerjaar">
+<button class="island" type="button" data-level="L4" aria-label="Kies leerjaar 4"><img src="./eiland%20L4.png" alt="L4-eiland met een groen natuurthema" fetchpriority="high"><span class="island-label">Leerjaar 4</span></button>
+<button class="island" type="button" data-level="L5" aria-label="Kies leerjaar 5"><img src="./eiland%20L5.png" alt="L5-eiland met een futuristisch blauw technologiethema" fetchpriority="high"><span class="island-label">Leerjaar 5</span></button>
+<button class="island" type="button" data-level="L6" aria-label="Kies leerjaar 6"><img src="./eiland%20L6.png" alt="L6-eiland met geavanceerde groene technologie" fetchpriority="high"><span class="island-label">Leerjaar 6</span></button>
+</section>
+</main>
+<footer>Ontdek &amp; leer · Oefenen · Beheersing</footer>
+</div>
+<div class="notice" id="notice" role="status" aria-live="polite"></div>
+<script>
+const notice=document.getElementById('notice');
+let noticeTimeout;
+function showNotice(message){notice.textContent=message;notice.classList.add('show');clearTimeout(noticeTimeout);noticeTimeout=setTimeout(()=>notice.classList.remove('show'),3000)}
+document.querySelectorAll('[data-notice]').forEach(button=>button.addEventListener('click',()=>showNotice(button.dataset.notice)));
+document.querySelectorAll('[data-level]').forEach(button=>button.addEventListener('click',()=>{const level=button.dataset.level;showNotice(level+' geselecteerd — de leerwereld bouwen we in de volgende stap verder uit.')})); 
+</script>
 </body>
 </html>
